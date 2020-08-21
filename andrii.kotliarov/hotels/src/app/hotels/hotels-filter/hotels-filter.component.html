@@ -1,0 +1,10 @@
+<div class="ele-strip pb-0">
+    <mat-form-field class="hotels-filter-input">
+        <mat-label>Search for description</mat-label>
+        <input matInput type="text" [value]="filterValue" (input)="filterChanged($event.target.value)">
+        <button mat-button *ngIf="filterValue" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+

@@ -1,5 +1,9 @@
 <div class="element">
-    <app-hotels-list [categories]="hotelsCategory" (hotelWasSelected)="hotelWasSelected($event)"></app-hotels-list>
+    <app-hotels-list [categories]="hotelsCategory" 
+                     [selectedCategory]="selectedCategory" 
+                     [selectedHotel]="selectedHotel" 
+                     (hotelWasSelected)="hotelWasSelected($event)"
+                     (categoryWasSelected)="categoryWasSelected($event)"> </app-hotels-list>
     <app-hotel-info [hotel]="selectedHotel"></app-hotel-info>
     <div class="clear"></div>
 </div>

@@ -3,14 +3,8 @@
         <img class="img-100 img-responsive" [src]="selectedHotel.picture" [alt]="selectedHotel.description">
     </div>
     <div class="element-left-bottom">
-        <div class="ele-strip">
-            <ul>
-                <li *ngFor="let category of categories;">
-                    <a (click)="selectTab(category)"
-                        [ngClass]="{'active-link': isSelected(category) }">{{ category.categoryName }}</a>
-                </li>
-            </ul>
-        </div>
+        <app-hotels-filter (filtered)="filterChanged($event)" [filterValue]="filterValue"></app-hotels-filter>
+        <app-hotel-categories [categories]="categories" [selectedCategory]="selectedCategory" (categoryChanged)="categoryChanged($event)"></app-hotel-categories>
         <div class="village">
             <h3>Righteous indignation & like</h3>
             <span class="line"></span>
@@ -24,7 +18,7 @@
                                 </div>
                             </div>
                             <div *ngIf="category.categoryHotels.length">
-                                <div *ngFor="let hotel of category.categoryHotels; ">
+                                <div *ngFor="let hotel of (category.categoryHotels | titleDescriptionFilter: filterValue); ">
                                     <div
                                         [ngClass]="{'activity-row': true, 'active-hotel': hotel.id === selectedHotel.id }">
                                         <app-hotel [hotel]="hotel" (click)="hotelPicked(hotel.id)"></app-hotel>

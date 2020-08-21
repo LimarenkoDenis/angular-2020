@@ -11,32 +11,32 @@ export class HotelsListComponent implements OnInit {
   @Input()
   public categories: ICategory<IHotel>[];
 
-  @Output()
-  public hotelWasSelected: EventEmitter<IHotel> = new EventEmitter<IHotel>();
-
+  @Input()
   public selectedHotel: IHotel;
+
+  @Input()
   public selectedCategory: ICategory<IHotel>;
 
-  public selectTab(content: ICategory<IHotel>): void {
-    this.selectedCategory = content;
-  }
+  @Output()
+  public hotelWasSelected: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output()
+  public categoryWasSelected: EventEmitter<string> = new EventEmitter<string>();
+
+  public filterValue: string = null;
 
   public hotelPicked(hotelId: number): void {
-    const hotel: IHotel = this.selectedCategory.categoryHotels.find((h: IHotel) => h.id === hotelId);
-    this.setHotel(hotel);
+    this.hotelWasSelected.emit(hotelId);
   }
 
-  public isSelected(content: ICategory<IHotel>): boolean {
-    return content.categoryName === this.selectedCategory.categoryName;
+  public categoryChanged(categoryName: string): void {
+    this.categoryWasSelected.emit(categoryName);
+  }
+
+  public filterChanged(filterValue: string): void {
+    this.filterValue = filterValue;
   }
 
   public ngOnInit(): void {
-    this.selectedCategory = this.categories[0];
-    this.setHotel(this.selectedCategory.categoryHotels[0]);
-  }
-
-  private setHotel(hotel: IHotel): void {
-    this.selectedHotel = hotel;
-    this.hotelWasSelected.emit(this.selectedHotel);
   }
 }

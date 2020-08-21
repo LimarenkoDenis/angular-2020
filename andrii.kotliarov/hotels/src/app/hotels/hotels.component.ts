@@ -10,17 +10,24 @@ import { contentCategories } from './__mock__/categories';
 })
 export class HotelsComponent implements OnInit {
   public selectedHotel: IHotel;
+  public selectedCategory: ICategory<IHotel>;
   public hotelsCategory: ICategory<IHotel>[];
 
   public constructor() {
     this.hotelsCategory = contentCategories;
+    this.selectedCategory = this.hotelsCategory[0];
+    this.selectedHotel = this.selectedCategory.categoryHotels[0];
   }
 
-  ngOnInit(): void {
+  public hotelWasSelected(hotelId: number): void {
+    this.selectedHotel = this.selectedCategory.categoryHotels.find((hotel: IHotel) => hotel.id === hotelId);
   }
 
-  public hotelWasSelected(hotel: IHotel): void {
-    this.selectedHotel = hotel;
+  public categoryWasSelected(categoryName: string): void {
+    this.selectedCategory = this.hotelsCategory.find((category: ICategory<IHotel>) =>
+            category.categoryName === categoryName);
   }
 
+  public ngOnInit(): void {
+  }
 }

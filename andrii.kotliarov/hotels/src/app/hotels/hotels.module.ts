@@ -6,6 +6,11 @@ import { WeatherComponent } from './weather/weather.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HotelsComponent } from './hotels.component';
 import { HotelInfoComponent } from './hotel-info/hotel-info.component';
+import { HotelCategoriesComponent } from './hotel-categories/hotel-categories.component';
+import { HotelsFilterComponent } from './hotels-filter/hotels-filter.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { TitleDescriptionFilterPipe } from './title-description-filter.pipe';
 
 
 @NgModule({
@@ -15,10 +20,15 @@ import { HotelInfoComponent } from './hotel-info/hotel-info.component';
     WeatherComponent,
     ProfileComponent,
     HotelsComponent,
-    HotelInfoComponent],
+    HotelInfoComponent,
+    HotelCategoriesComponent,
+    HotelsFilterComponent,
+    TitleDescriptionFilterPipe],
   imports: [
-    CommonModule
+    CommonModule,
+    MatInputModule,
+    MatIconModule
   ],
-  exports:[HotelsComponent]
+  exports:[ HotelsComponent ]
 })
 export class HotelsListModule { }

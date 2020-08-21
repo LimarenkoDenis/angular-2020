@@ -1,0 +1,8 @@
+<div class="ele-strip">
+    <ul>
+        <li *ngFor="let category of categories;">
+            <a (click)="select(category)"
+                [ngClass]="{'active-link': isSelected(category) }">{{ category.categoryName }}</a>
+        </li>
+    </ul>
+</div>
