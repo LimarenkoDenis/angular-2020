@@ -4,6 +4,12 @@
         <p>{{hotel.description}}</p>
         <p>{{hotel.address}}</p>
         <h6>{{hotel.phone}}</h6>
+        <span class="example-list-section">
+            Favorite:
+            <mat-checkbox [checked]="favorite"
+                          (change)="changeFavorite($event.checked)">
+            </mat-checkbox>
+        </span>
     </div>
     <div class="activity-img">
         <ul>

@@ -3,7 +3,10 @@
         <img class="img-100 img-responsive" [src]="selectedHotel.picture" [alt]="selectedHotel.description">
     </div>
     <div class="element-left-bottom">
-        <app-hotels-filter (filtered)="filterChanged($event)" [filterValue]="filterValue"></app-hotels-filter>
+        <div *ngIf="selectedCategory.categoryHotels.length">
+            <app-hotels-filter (filtered)="textChanged($event)" [filterValue]="textFilterValue"></app-hotels-filter>
+            <app-star-filter [starList]="starList" (selectedStars)="starsSelected($event)"></app-star-filter>
+        </div>
         <app-hotel-categories [categories]="categories" [selectedCategory]="selectedCategory" (categoryChanged)="categoryChanged($event)"></app-hotel-categories>
         <div class="village">
             <h3>Righteous indignation & like</h3>
@@ -18,10 +21,14 @@
                                 </div>
                             </div>
                             <div *ngIf="category.categoryHotels.length">
-                                <div *ngFor="let hotel of (category.categoryHotels | titleDescriptionFilter: filterValue); ">
+                                <div *ngFor="let hotel of (category.categoryHotels | hotelsFilter: textFilterValue : starsFilterValue); ">
                                     <div
                                         [ngClass]="{'activity-row': true, 'active-hotel': hotel.id === selectedHotel.id }">
-                                        <app-hotel [hotel]="hotel" (click)="hotelPicked(hotel.id)"></app-hotel>
+                                        <app-hotel
+                                            [hotel]="hotel"
+                                            [favorite]="isFavorite(hotel)" 
+                                            (click)="hotelPicked(hotel.id)" 
+                                            (favoriteChanged)="changeFavorite($event)"></app-hotel>
                                     </div>
                                 </div>
                             </div>

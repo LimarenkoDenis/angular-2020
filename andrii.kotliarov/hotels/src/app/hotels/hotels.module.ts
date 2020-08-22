@@ -10,8 +10,16 @@ import { HotelCategoriesComponent } from './hotel-categories/hotel-categories.co
 import { HotelsFilterComponent } from './hotels-filter/hotels-filter.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { TitleDescriptionFilterPipe } from './title-description-filter.pipe';
-
+import { StarFilterComponent } from './star-filter/star-filter.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import { HotelsFilterPipe } from './pipes/hotels-filter.pipe';
+import { FavoriteHotelsComponent } from './favorite-hotels/favorite-hotels.component';
+import { OrdinalHighlightDirective } from './directives/ordinal-highlight.directive';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoaderDirective } from './directives/loader.directive';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -23,12 +31,21 @@ import { TitleDescriptionFilterPipe } from './title-description-filter.pipe';
     HotelInfoComponent,
     HotelCategoriesComponent,
     HotelsFilterComponent,
-    TitleDescriptionFilterPipe],
+    StarFilterComponent,
+    HotelsFilterPipe,
+    FavoriteHotelsComponent,
+    OrdinalHighlightDirective,
+    LoaderDirective,
+    LoadingSpinnerComponent],
   imports: [
     CommonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
-  exports:[ HotelsComponent ]
+  exports: [ HotelsComponent ]
 })
 export class HotelsListModule { }

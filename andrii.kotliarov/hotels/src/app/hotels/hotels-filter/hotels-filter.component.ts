@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-hotels-filter',
@@ -14,7 +14,6 @@ export class HotelsFilterComponent implements OnInit {
   public constructor() { }
 
   public filterChanged(value: string): void {
-    console.log(value)
     this.filtered.emit(value);
   }
 
