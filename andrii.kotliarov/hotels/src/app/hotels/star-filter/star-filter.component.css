@@ -1,0 +1,16 @@
+  .star-filter-section {
+    margin: 12px 0;
+  }
+  
+  .star-filter-margin {
+    margin: 0 12px;
+  }
+  
+  .star-filter-ul {
+    list-style-type: none;
+    margin-top: 4px;
+  }
+
+  .star-element {
+    display: inline;
+  }

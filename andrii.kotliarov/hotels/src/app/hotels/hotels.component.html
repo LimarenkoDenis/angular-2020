@@ -1,6 +1,17 @@
-<div class="element">
-    <app-hotels-list [categories]="hotelsCategory" (hotelWasSelected)="hotelWasSelected($event)"></app-hotels-list>
+<div *appLoader="isLoaded" class="element">
+    <div *ngIf="favoriteHotels.length">
+        <app-favorite-hotels [hotels]="favoriteHotels" (favoriteHotelsChanged)="favoriteHotelsChanged($event)"></app-favorite-hotels>
+    </div>
+    
+    <app-hotels-list [categories]="hotelsCategory" 
+                     [selectedCategory]="selectedCategory" 
+                     [selectedHotel]="selectedHotel"
+                     [favoriteHotels]="favoriteHotels"
+                     (favoriteHotelsChanged)="favoriteHotelsChanged($event)"
+                     (hotelWasSelected)="hotelWasSelected($event)"
+                     (categoryWasSelected)="categoryWasSelected($event)"> </app-hotels-list>
     <app-hotel-info [hotel]="selectedHotel"></app-hotel-info>
     <div class="clear"></div>
 </div>
+
 

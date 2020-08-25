@@ -1,0 +1,13 @@
+<div class="ele-strip">
+    <div class="scrollbar">
+        <div *ngFor="let hotel of hotels; odd as odd; ">
+            <div [appOrdinalHighlight] [isOdd]="odd" [defaultColor]="'LightSkyBlue'"
+                [ngClass]="{'activity-row': true }">
+                <app-hotel
+                    [hotel]="hotel"
+                    [favorite]="true"
+                    (favoriteChanged)="changeFavorite($event)"></app-hotel>
+            </div>
+        </div>
+    </div>
+</div>

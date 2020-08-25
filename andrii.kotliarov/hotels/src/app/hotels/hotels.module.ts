@@ -6,7 +6,20 @@ import { WeatherComponent } from './weather/weather.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HotelsComponent } from './hotels.component';
 import { HotelInfoComponent } from './hotel-info/hotel-info.component';
-
+import { HotelCategoriesComponent } from './hotel-categories/hotel-categories.component';
+import { HotelsFilterComponent } from './hotels-filter/hotels-filter.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { StarFilterComponent } from './star-filter/star-filter.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import { HotelsFilterPipe } from './pipes/hotels-filter.pipe';
+import { FavoriteHotelsComponent } from './favorite-hotels/favorite-hotels.component';
+import { OrdinalHighlightDirective } from './directives/ordinal-highlight.directive';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoaderDirective } from './directives/loader.directive';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -15,10 +28,24 @@ import { HotelInfoComponent } from './hotel-info/hotel-info.component';
     WeatherComponent,
     ProfileComponent,
     HotelsComponent,
-    HotelInfoComponent],
+    HotelInfoComponent,
+    HotelCategoriesComponent,
+    HotelsFilterComponent,
+    StarFilterComponent,
+    HotelsFilterPipe,
+    FavoriteHotelsComponent,
+    OrdinalHighlightDirective,
+    LoaderDirective,
+    LoadingSpinnerComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MatInputModule,
+    MatIconModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
-  exports:[HotelsComponent]
+  exports: [ HotelsComponent ]
 })
 export class HotelsListModule { }

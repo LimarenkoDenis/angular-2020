@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IHotel } from './../models/IHotel';
 import { ICategory } from '../models/ICategory';
+import { FavoriteHotelEventData } from '../models/FavoriteHotel';
 
 @Component({
   selector: 'app-hotels-list',
@@ -11,32 +12,54 @@ export class HotelsListComponent implements OnInit {
   @Input()
   public categories: ICategory<IHotel>[];
 
-  @Output()
-  public hotelWasSelected: EventEmitter<IHotel> = new EventEmitter<IHotel>();
-
+  @Input()
   public selectedHotel: IHotel;
+
+  @Input()
   public selectedCategory: ICategory<IHotel>;
 
-  public selectTab(content: ICategory<IHotel>): void {
-    this.selectedCategory = content;
+  @Input()
+  public favoriteHotels: IHotel[];
+
+  @Output()
+  public hotelWasSelected: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output()
+  public categoryWasSelected: EventEmitter<string> = new EventEmitter<string>();
+
+  @Output()
+  public favoriteHotelsChanged: EventEmitter<FavoriteHotelEventData> = new EventEmitter<FavoriteHotelEventData>();
+
+  public textFilterValue: string = null;
+
+  public starsFilterValue: number[] = null;
+
+  public get starList(): number[] {
+    return this.selectedCategory.categoryHotels.map((hotel: IHotel) => hotel.stars);
   }
 
   public hotelPicked(hotelId: number): void {
-    const hotel: IHotel = this.selectedCategory.categoryHotels.find((h: IHotel) => h.id === hotelId);
-    this.setHotel(hotel);
+    this.hotelWasSelected.emit(hotelId);
   }
 
-  public isSelected(content: ICategory<IHotel>): boolean {
-    return content.categoryName === this.selectedCategory.categoryName;
+  public categoryChanged(categoryName: string): void {
+    this.categoryWasSelected.emit(categoryName);
+  }
+
+  public textChanged(filterValue: string): void {
+    this.textFilterValue = filterValue;
+  }
+
+  public starsSelected(filterValue: number[]): void {
+    this.starsFilterValue = filterValue;
+  }
+
+  public isFavorite = (hotel: IHotel): boolean => this.favoriteHotels.includes(hotel);
+
+  public changeFavorite(eventData: FavoriteHotelEventData): void {
+    this.favoriteHotelsChanged.emit(eventData);
   }
 
   public ngOnInit(): void {
-    this.selectedCategory = this.categories[0];
-    this.setHotel(this.selectedCategory.categoryHotels[0]);
-  }
-
-  private setHotel(hotel: IHotel): void {
-    this.selectedHotel = hotel;
-    this.hotelWasSelected.emit(this.selectedHotel);
   }
 }

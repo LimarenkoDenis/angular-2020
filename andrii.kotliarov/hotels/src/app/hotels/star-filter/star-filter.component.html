@@ -1,0 +1,17 @@
+  <section class="ele-strip">
+    <span>Stars: </span>
+      <mat-checkbox class="star-element"
+                    [checked]="allStars"
+                    [indeterminate]="someStars"
+                    (change)="selectAll($event.checked)">
+        All
+      </mat-checkbox>
+      <ul class="star-element">
+        <li *ngFor="let star of stars" class="star-element">
+          <mat-checkbox [(ngModel)]="star.selected"
+                        (ngModelChange)="updateSomeStars()">
+            {{star.displayText}}
+          </mat-checkbox>
+        </li>
+      </ul>
+  </section>
