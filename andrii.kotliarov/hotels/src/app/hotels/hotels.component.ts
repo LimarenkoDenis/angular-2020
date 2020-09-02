@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IHotel } from './models/IHotel';
-import { ICategory } from './models/ICategory';
-import { contentCategories } from './__mock__/categories';
-import { FavoriteHotelEventData } from './models/FavoriteHotel';
+import { IHotel } from '@app/models/IHotel';
+import { ICategory } from '@app/models/ICategory';
+import { FavoriteHotelEventData } from '@app/models/FavoriteHotel';
 import { isDefined } from '@angular/compiler/src/util';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RemoteService } from './../services/remote.service';
 
 @Component({
   selector: 'app-hotels',
@@ -18,13 +18,7 @@ export class HotelsComponent implements OnInit {
   public favoriteHotels: IHotel[] = [];
   public isLoaded: boolean = false;
 
-  public constructor(private notifier: MatSnackBar) {
-    setTimeout(() => {
-      this.hotelsCategory = contentCategories;
-      this.selectedCategory = this.hotelsCategory[0];
-      this.selectedHotel = this.selectedCategory.categoryHotels[0];
-      this.isLoaded = true;
-    }, 3000);
+  public constructor(private notifier: MatSnackBar, private remoteService: RemoteService) {
   }
 
   public hotelWasSelected(hotelId: number): void {
@@ -58,6 +52,14 @@ export class HotelsComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.remoteService
+      .categoryList()
+      .subscribe((data: ICategory<IHotel>[]) => {
+        this.hotelsCategory = data;
+        this.selectedCategory = this.hotelsCategory[0];
+        this.selectedHotel = this.selectedCategory.categoryHotels[0];
+        this.isLoaded = true;
+      });
   }
 
   private showMessage(message: string): void {

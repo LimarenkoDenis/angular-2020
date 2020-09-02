@@ -1,8 +1,7 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
-import { IHotelStar } from '../models/IHotelStar';
-import { HotelStarred } from '../models/HotelStarred';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IHotelStar } from '@app/models/IHotelStar';
+import { HotelStarred } from '@app/models/HotelStarred';
 import { isDefined } from '@angular/compiler/src/util';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-star-filter',

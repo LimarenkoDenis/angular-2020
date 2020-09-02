@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { IHotel } from '../models/IHotel';
-import { FavoriteHotelEventData } from '../models/FavoriteHotel';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IHotel } from '@app/models/IHotel';
+import { FavoriteHotelEventData } from '@app/models/FavoriteHotel';
 
 @Component({
   selector: 'app-hotel',

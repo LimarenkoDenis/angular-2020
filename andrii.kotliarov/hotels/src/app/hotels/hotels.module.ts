@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoaderDirective } from './directives/loader.directive';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RemoteService } from '@app/services/remote.service';
 
 @NgModule({
   declarations: [

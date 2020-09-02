@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "webservice": "json-server --watch server/data.json",
+    "start:all": "npm-run-all --parallel start webservice"
   },
   "private": true,
   "dependencies": {

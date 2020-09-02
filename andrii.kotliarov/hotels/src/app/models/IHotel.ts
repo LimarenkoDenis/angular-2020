@@ -1,5 +1,5 @@
-import { IWeather } from './IWeater';
-import { IProfile } from './IProfile';
+import { IWeather } from '@app/models/IWeather';
+import { IProfile } from '@app/models/IProfile';
 
 export interface IHotel {
     id: number;
