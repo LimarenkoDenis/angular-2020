@@ -1,93 +1,138 @@
 {
-    "auth": {
-      "token": "someToken"
-    },
-    "data": [
+  "auth": {
+    "token": "someToken"
+  },
+  "data": [
+    {
+      "categoryName": "Hotel",
+      "categoryHotels": [
         {
-            "categoryName": "Hotel",
-            "categoryHotels": [
-                {
-                  "id": 0,
-                  "title": "Universal Cabana",
-                  "address": "Orlando",
-                  "description": "Best one!",
-                  "phone": "+3242353434",
-                  "picture": "assets/images/1.jpg",
-                  "photos": [
-                    "assets/images/res.jpg",
-                    "assets/images/r1.jpg"
-                  ],
-                  "weather":  {
-                    "temperature": 12,
-                    "wind": 11,
-                    "icon": "sun"
-                  },
-                  "profile": {
-                    "followers": 112,
-                    "following": 11,
-                    "photo": "assets/images/b1.jpg"
-                  },
-                  "stars": 3
-                },
-                {
-                  "id": 1,
-                  "title": "Kharkov plaza",
-                  "address": "Kharkov",
-                  "description": "Five Stars",
-                  "phone": "+3242353434",
-                  "picture": "assets/images/2.jpg",
-                  "photos": [
-                    "assets/images/res.jpg",
-                    "assets/images/r1.jpg"
-                  ],
-                  "weather":  {
-                    "temperature": 5,
-                    "wind": 4,
-                    "icon": "rain"
-                  },
-                  "profile": {
-                    "followers": 12,
-                    "following": 111,
-                    "photo": "assets/images/b2.jpg"
-                  },
-                  "stars": 4
-                },
-                {
-                  "id": 2,
-                  "title": "Hotel name",
-                  "address": "Orlando",
-                  "description": "Lorem ipson0",
-                  "phone": "+3242353434",
-                  "picture": "assets/images/3.jpg",
-                  "photos": [
-                    "assets/images/res.jpg",
-                    "assets/images/r1.jpg"
-                  ],
-                  "weather":  {
-                    "temperature": -2,
-                    "wind": 2,
-                    "icon": "cloud"
-                  },
-                  "profile": {
-                    "followers": 45,
-                    "following": 78,
-                    "photo": "assets/images/b3.jpg"
-                  },
-                  "stars": 5
-                }
-              ]
+          "id": 0,
+          "title": "Universal Cabana",
+          "address": "Orlando",
+          "description": "Best one!",
+          "phone": "+3242353434",
+          "picture": "assets/images/1.jpg",
+          "photos": [
+            "assets/images/res.jpg",
+            "assets/images/r1.jpg"
+          ],
+          "weather": {
+            "temperature": 12,
+            "wind": 11,
+            "icon": "sun"
+          },
+          "profile": {
+            "followers": 112,
+            "following": 11,
+            "photo": "assets/images/b1.jpg"
+          },
+          "stars": 3
         },
         {
-            "categoryName": "Fishing",
-            "categoryHotels": []
+          "id": 1,
+          "title": "Kharkov plaza",
+          "address": "Kharkov",
+          "description": "Five Stars",
+          "phone": "+3242353434",
+          "picture": "assets/images/2.jpg",
+          "photos": [
+            "assets/images/res.jpg",
+            "assets/images/r1.jpg"
+          ],
+          "weather": {
+            "temperature": 5,
+            "wind": 4,
+            "icon": "rain"
+          },
+          "profile": {
+            "followers": 12,
+            "following": 111,
+            "photo": "assets/images/b2.jpg"
+          },
+          "stars": 4
         },
         {
-            "categoryName": "Tours",
-            "categoryHotels": []
-        },
-        {
-            "categoryName": "Weather",
-            "categoryHotels": []
+          "id": 2,
+          "title": "Hotel name",
+          "address": "Orlando",
+          "description": "Lorem ipson0",
+          "phone": "+3242353434",
+          "picture": "assets/images/3.jpg",
+          "photos": [
+            "assets/images/res.jpg",
+            "assets/images/r1.jpg"
+          ],
+          "weather": {
+            "temperature": -2,
+            "wind": 2,
+            "icon": "cloud"
+          },
+          "profile": {
+            "followers": 45,
+            "following": 78,
+            "photo": "assets/images/b3.jpg"
+          },
+          "stars": 5
         }
-    ]
+      ]
+    },
+    {
+      "categoryName": "Fishing",
+      "categoryHotels": []
+    },
+    {
+      "categoryName": "Tours",
+      "categoryHotels": []
+    },
+    {
+      "categoryName": "Weather",
+      "categoryHotels": []
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "Admin",
+      "surname": "Admin Admin",
+      "email": "admin-social@some.io",
+      "password": "12345678",
+      "birthDate": "1991-08-31T00:00:00.000Z"
+    },
+    {
+      "id": 1,
+      "name": "Moderator",
+      "surname": "Moderator Moderator",
+      "email": "moderator-social@some.io",
+      "password": "87654321",
+      "birthDate": "1995-08-31T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "name",
+      "surname": "name",
+      "email": "andrii_kotliarov@symbotic.com",
+      "password": "12345678",
+      "birthDate": "2020-09-07T21:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "name",
+      "surname": "name",
+      "email": "l_freeman@mail.ru",
+      "password": "12345678",
+      "birthDate": "2020-09-07T21:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "name",
+      "surname": "name",
+      "email": "l_freeman@mail.ru",
+      "password": "12345678",
+      "birthDate": "2020-09-29T21:00:00.000Z"
+    },
+    {
+      "id": 5
+    }
+  ]
 }
