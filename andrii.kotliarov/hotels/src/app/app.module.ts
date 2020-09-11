@@ -13,7 +13,7 @@ import { HeaderModule } from './header/header.module';
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

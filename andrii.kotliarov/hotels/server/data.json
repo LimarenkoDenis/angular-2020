@@ -109,30 +109,11 @@
     },
     {
       "id": 2,
-      "name": "name",
-      "surname": "name",
-      "email": "andrii_kotliarov@symbotic.com",
+      "name": "someName",
+      "surname": "some surnam",
+      "email": "l87freeman@gmail.com",
       "password": "12345678",
-      "birthDate": "2020-09-07T21:00:00.000Z"
-    },
-    {
-      "id": 3,
-      "name": "name",
-      "surname": "name",
-      "email": "l_freeman@mail.ru",
-      "password": "12345678",
-      "birthDate": "2020-09-07T21:00:00.000Z"
-    },
-    {
-      "id": 4,
-      "name": "name",
-      "surname": "name",
-      "email": "l_freeman@mail.ru",
-      "password": "12345678",
-      "birthDate": "2020-09-29T21:00:00.000Z"
-    },
-    {
-      "id": 5
+      "birthDate": "2020-09-08T21:00:00.000Z"
     }
   ]
 }
