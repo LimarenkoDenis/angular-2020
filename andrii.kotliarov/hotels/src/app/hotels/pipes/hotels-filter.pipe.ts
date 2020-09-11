@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IHotel } from '../models/IHotel';
+import { IHotel } from '@app/models/IHotel';
 import { isDefined } from '@angular/compiler/src/util';
 
 @Pipe({

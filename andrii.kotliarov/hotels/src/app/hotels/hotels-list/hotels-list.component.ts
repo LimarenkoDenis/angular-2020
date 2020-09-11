@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IHotel } from './../models/IHotel';
-import { ICategory } from '../models/ICategory';
-import { FavoriteHotelEventData } from '../models/FavoriteHotel';
+import { IHotel } from '@app/models/IHotel';
+import { ICategory } from '@app/models/ICategory';
+import { FavoriteHotelEventData } from '@app/models/FavoriteHotel';
 
 @Component({
   selector: 'app-hotels-list',

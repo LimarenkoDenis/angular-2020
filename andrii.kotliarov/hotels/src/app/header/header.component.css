@@ -5,3 +5,12 @@
     margin: 3em 0em 2em 0em;
     font-family: 'Quicksand', sans-serif;
 }
+.menu-panel{
+   width: 60%;
+   margin: 1% 20%;
+   background: #fda660;
+   color: white;
+}
+.pull-right{
+    float: right;
+}

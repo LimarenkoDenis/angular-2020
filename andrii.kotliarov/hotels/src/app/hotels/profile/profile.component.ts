@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IProfile } from '../models/IProfile';
+import { IProfile } from '@app/models/IProfile';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +13,6 @@ export class ProfileComponent implements OnInit {
   @Input()
   public description: string;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
-
 }

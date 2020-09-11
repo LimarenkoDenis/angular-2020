@@ -1,0 +1,78 @@
+<form [formGroup]="formGroup">
+    <h2 mat-dialog-title>Registration form</h2>
+    <div mat-dialog-content>
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label>Name</mat-label>
+                <input id="name" matInput placeholder="Name" [formControl]="formGroup.controls.name">
+                <mat-icon matSuffix> {{ formGroup.controls.name.valid ? 'sentiment_very_satisfied' : 'mood_bad' }}</mat-icon>
+                <mat-error *ngIf="formGroup.controls.name.errors?.required">Name is required</mat-error>
+                <mat-error *ngIf="formGroup.controls.name.errors?.minlength">Length should be more >= {{ formGroup.controls.name.errors.minlength.requiredLength }}</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label>Surname</mat-label>
+                <input id="surname" matInput placeholder="Surname" [formControl]="formGroup.controls.surname">
+                <mat-icon matSuffix>{{ formGroup.controls.surname.valid ? 'sentiment_very_satisfied' : 'mood_bad' }}</mat-icon>
+                <mat-error *ngIf="formGroup.controls.surname.errors?.required">Surname is required</mat-error>
+                <mat-error *ngIf="formGroup.controls.surname.errors?.minlength">Length should be more >= {{ formGroup.controls.surname.errors.minlength.requiredLength }}</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label>Email</mat-label>
+                <input id="email" matInput placeholder="Email" [formControl]="formGroup.controls.email">
+                <mat-icon matSuffix>{{ formGroup.controls.email.valid ? 'sentiment_very_satisfied' : 'mood_bad' }}</mat-icon>
+                <mat-error *ngIf="formGroup.controls.email.errors?.required">Surname is required</mat-error>
+                <mat-error *ngIf="formGroup.controls.email.errors?.email">Should provide valid email</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input id="password" matInput [type]="isPasswordHidden ? 'password' : 'text'" [formControl]="formGroup.controls.password">
+                <button mat-icon-button matSuffix (click)="isPasswordHidden = !isPasswordHidden" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="isPasswordHidden">
+                    <mat-icon>{{isPasswordHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="formGroup.controls.password.errors?.required">Password is required</mat-error>
+                <mat-error *ngIf="formGroup.controls.password.errors?.minlength">Length should be more >= {{ formGroup.controls.password.errors.minlength.requiredLength }}</mat-error>
+                <mat-error *ngIf="formGroup.controls.password.errors?.pattern">Only letters, digits and [_-] allowed</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill">
+                <mat-label>Confirm your password</mat-label>
+                <input id="confirmPassword" matInput [type]="isPasswordHidden ? 'password' : 'text'" [formControl]="formGroup.controls.confirmPassword">
+                <button mat-icon-button matSuffix (click)="isPasswordHidden = !isPasswordHidden" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="isPasswordHidden">
+                    <mat-icon>{{isPasswordHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="formGroup.controls.confirmPassword.errors?.required">Should confirm password</mat-error>
+                <mat-error *ngIf="formGroup.errors?.mustMatch">Passwords are not the same</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [formControl]="formGroup.controls.birthDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="formGroup.controls.birthDate.errors?.required">Birth date is required</mat-error>
+                <mat-error *ngIf="formGroup.controls.birthDate.errors?.dateNotValid">Not valid date provided</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-radio-group [formControl]="formGroup.controls.gender" aria-label="Select gender" >
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-error *ngIf="formGroup.controls.gender.errors?.required">Gender is required</mat-error>
+            </mat-radio-group>
+        </p>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-mini-fab color="primary" disabled={{formGroup.invalid}} (click)="register()">+</button>
+        <button mat-mini-fab color="accent" mat-dialog-close>Close</button>
+    </div>
+</form>

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ICategory } from '../models/ICategory';
-import { IHotel } from '../models/IHotel';
+import { ICategory } from '@app/models/ICategory';
+import { IHotel } from '@app/models/IHotel';
 
 @Component({
   selector: 'app-hotel-categories',
